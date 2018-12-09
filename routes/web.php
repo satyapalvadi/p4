@@ -11,9 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'JournalController@index');
+
+Route::get('create/group','GroupContoller@create');
+Route::get('edit/group','GroupContoller@create');
+Route::get('review/group','GroupContoller@create');
+
+Route::get('create/group','PersonContoller@create');
+Route::get('edit/group','PersonContoller@create');
+Route::get('review/group','PersonContoller@create');
+
+Route::get('person/review','ReviewContoller@person');
+Route::get('group/review','ReviewContoller@group');
+
+/*
+ * Pages
+ * Simple, static pages without a lot of logic
+ */
+Route::view('/about', 'about');
+Route::view('/contact', 'contact');
 
 
 Route::get('/debug', function () {
@@ -41,3 +57,5 @@ Route::get('/debug', function () {
 
     dump($debug);
 });
+
+

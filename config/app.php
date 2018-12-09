@@ -2,6 +2,15 @@
 
 return [
 
+    'nav' => [
+        '/journal' => 'Journal',
+        '/journal/create/group' => 'Add a group',
+        '/journal/create/person' => 'Add a person',
+        '/journal/review' => "Review",
+        '/about' => 'About',
+        '/contact' => 'Contact',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
