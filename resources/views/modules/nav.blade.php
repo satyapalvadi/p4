@@ -6,7 +6,7 @@
             <div class="dropdown-content">
                 <a href="/group/create">Create</a>
                 <a href="/group/edit">Edit</a>
-                <a href="/group/review">Review</a>
+                <a href="/group/view">View</a>
             </div>
         </li>
         <li class='dropdown'>
@@ -14,7 +14,7 @@
             <div class="dropdown-content">
                 <a href="/person/create">Create</a>
                 <a href="/person/edit">Edit</a>
-                <a href="/person/review">Review</a>
+                <a href="/person/view">View</a>
             </div>
         </li>
         <li class='dropdown'>

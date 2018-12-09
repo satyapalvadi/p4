@@ -13,16 +13,16 @@
 
 Route::get('/', 'JournalController@index');
 
-Route::get('create/group','GroupContoller@create');
-Route::get('edit/group','GroupContoller@create');
-Route::get('review/group','GroupContoller@create');
+Route::post('group/create','GroupController@create');
+Route::post('group/edit','GroupController@edit');
+Route::get('group/view','GroupController@view');
 
-Route::get('create/group','PersonContoller@create');
-Route::get('edit/group','PersonContoller@create');
-Route::get('review/group','PersonContoller@create');
+Route::post('person/create','PersonController@create');
+Route::post('person/edit','PersonController@edit');
+Route::get('person/view','PersonController@view');
 
-Route::get('person/review','ReviewContoller@person');
-Route::get('group/review','ReviewContoller@group');
+Route::get('review/person','ReviewController@person');
+Route::get('review/group','ReviewController@group');
 
 /*
  * Pages
