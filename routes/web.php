@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'JournalController@index');
+Route::get('/', 'LogController@displayLogForm');
+Route::get('/log', 'LogController@displayLogForm');
+
+Route::post('/log/create', 'LogController@create');
 
 //Create a new group
 Route::get('group/create/display','GroupController@displayCreateGroupForm');

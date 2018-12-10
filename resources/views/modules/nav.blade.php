@@ -1,6 +1,6 @@
 <nav>
     <ul>
-        <li><a href="/journal">Journal</a></li>
+        <li><a href="/log">Log</a></li>
         <li class='dropdown'>
             <a href="javascript:void(0)" class="dropbtn">Group</a>
             <div class="dropdown-content">
