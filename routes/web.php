@@ -13,12 +13,26 @@
 
 Route::get('/', 'JournalController@index');
 
+//Create a new group
+Route::get('group/create/display','GroupController@displayCreateGroupForm');
 Route::post('group/create','GroupController@create');
-Route::post('group/edit','GroupController@edit');
+
+//Edit a group
+Route::get('group/{id}/edit/display','GroupController@displayEditGroupForm');
+Route::put('group/{id}/edit','GroupController@edit');
+
+//Display all groups
 Route::get('group/view','GroupController@view');
 
+//Create a new person
+Route::get('person/create/display','PersonController@displayCreatePersonForm');
 Route::post('person/create','PersonController@create');
-Route::post('person/edit','PersonController@edit');
+
+//Edit a person
+Route::get('person/{id}/edit/display','PersonController@displayEditPersonForm');
+Route::put('person/{id}/edit','PersonController@edit');
+
+//Display all persons
 Route::get('person/view','PersonController@view');
 
 Route::get('review/person','ReviewController@person');

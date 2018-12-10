@@ -4,16 +4,14 @@
         <li class='dropdown'>
             <a href="javascript:void(0)" class="dropbtn">Group</a>
             <div class="dropdown-content">
-                <a href="/group/create">Create</a>
-                <a href="/group/edit">Edit</a>
+                <a href="/group/create/display">Create</a>
                 <a href="/group/view">View</a>
             </div>
         </li>
         <li class='dropdown'>
             <a href="javascript:void(0)" class="dropbtn">Person</a>
             <div class="dropdown-content">
-                <a href="/person/create">Create</a>
-                <a href="/person/edit">Edit</a>
+                <a href="/person/create/display">Create</a>
                 <a href="/person/view">View</a>
             </div>
         </li>
