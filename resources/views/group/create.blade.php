@@ -5,7 +5,7 @@
 @endsection
 
 @push('head')
-    <link href='/css/books/journal.css' rel='stylesheet'>
+    <link href='/css/journal.css' rel='stylesheet'>
 @endpush
 
 @section('content')

@@ -21,9 +21,7 @@ class CreateGroupPersonTable extends Migration
             $table->integer('person_id')->unsigned();
 
             $table->foreign('group_id')->references('id')->on('groups');
-            $table->foreign('person_id')->references('id')->on('persons');
-
-
+            $table->foreign('person_id')->references('id')->on('people');
         });
     }
 
