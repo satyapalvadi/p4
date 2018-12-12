@@ -38,7 +38,10 @@ Route::put('person/{id}/edit','PersonController@edit');
 //Display all persons
 Route::get('person/view','PersonController@view');
 
-Route::get('review/person','ReviewController@person');
+
+Route::get('review/person/display','ReviewController@displayReviewPerson');
+Route::get('review/person/list','ReviewController@listReviewPerson');
+
 Route::get('review/group','ReviewController@group');
 
 /*

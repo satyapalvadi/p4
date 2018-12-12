@@ -18,8 +18,8 @@
         <li class='dropdown'>
             <a href="javascript:void(0)" class="dropbtn">Review</a>
             <div class="dropdown-content">
-                <a href="/review/person">Individual</a>
-                <a href="/review/group">Group</a>
+                <a href="/review/person/display">Individual</a>
+                <a href="/review/group/display">Group</a>
             </div>
         </li>
         <li><a href="/about">About</a></li>
