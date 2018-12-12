@@ -21,6 +21,7 @@
                 <th>Weight</th>
                 <th>Groups</th>
                 <th>Edit</th>
+                <th>Delete</th>
             </tr>
             @foreach($people as $person)
                 <tr>
@@ -36,6 +37,7 @@
                         @endforeach
                     </td>
                     <td class='edit'><a href='/person/{{ $person->id }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
+                    <td class='edit'><a href='/person/{{ $person->id }}/delete/display'><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </table>

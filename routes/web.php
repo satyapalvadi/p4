@@ -35,6 +35,9 @@ Route::post('person/create','PersonController@create');
 Route::get('person/{id}/edit/display','PersonController@displayEditPersonForm');
 Route::put('person/{id}/edit','PersonController@edit');
 
+Route::get('person/{id}/delete/display','PersonController@displayDeletePersonForm');
+Route::delete('person/{id}/delete','PersonController@delete');
+
 //Display all persons
 Route::get('person/view','PersonController@view');
 
@@ -42,7 +45,10 @@ Route::get('person/view','PersonController@view');
 Route::get('review/person/display','ReviewController@displayReviewPerson');
 Route::get('review/person/list','ReviewController@listReviewPerson');
 
-Route::get('review/group','ReviewController@group');
+Route::get('review/group/display','ReviewController@displayReviewGroup');
+Route::get('review/group/list','ReviewController@listReviewGroup');
+
+
 
 /*
  * Pages

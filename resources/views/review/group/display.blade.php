@@ -16,13 +16,13 @@
         </div>
     @endif
 
-    <h1>Add new activity</h1>
+    <h1>Review Group Activity</h1>
 
-    <form method='GET' action='/review/person/list'>
-        <label for='person_id'>* Select Person</label>
-        <select id='person_id' name='person_id'>
-            @foreach ($persons as $person)
-                <option value='{{$person->id}}'>{{ $person->first_name }} {{ $person->last_name }}</option>
+    <form method='GET' action='/review/group/list'>
+        <label for='group_id'>* Select Group</label>
+        <select id='group_id' name='group_id'>
+            @foreach ($groups as $group)
+                <option value='{{ $group->id }}'>{{ $group->name }}</option>
             @endforeach
         </select>
         <input type='submit' value='GO' class='btn btn-primary'>

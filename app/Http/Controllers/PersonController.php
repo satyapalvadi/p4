@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Group;
 use App\Person;
+use App\Log;
 
 class PersonController extends Controller
 {
@@ -93,4 +94,28 @@ class PersonController extends Controller
 
         return redirect('/person/view')->with(["alert" => "Person updated"]);
     }
+
+
+    public function displayDeletePersonForm($id){
+        $person = Person::find($id);
+        return view('person.delete')->with(['person' => $person]);
+    }
+
+    public function delete(Request $request, $id){
+        $person = Person::find($id);
+
+        //first delete associated groups from the pivot table
+        $person->groups()->detach();
+
+        //delete from person's activity from logs table
+        $logs = Log::where('person_id','=',$id)->delete();
+
+        //then delete from people table
+        $person->delete();
+
+        return redirect('/person/view')->with(["alert" => "All info related to the selected person was deleted."]);
+    }
+
+
+
 }

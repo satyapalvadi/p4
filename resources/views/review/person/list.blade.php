@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <h1>Add new activity</h1>
+    <h2>Review activity</h2>
 
     <form method='GET' action='/review/person/list'>
         <label for='person_id'>* Select Person</label>
