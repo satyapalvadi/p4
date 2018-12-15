@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Person;
 use App\Log;
@@ -31,14 +32,30 @@ class ReviewController extends Controller
 
     //GET
     public function listReviewGroup(Request $request){
-        $group = Group::find($request->group_id);
+        $groups = Group::orderBy('name')->get();
         $selectedGroup = Group::find($request->group_id);
-        $persons = $group->people()->orderBy('people.id')->pluck('people.id')->toArray();
+        $selectedReviewCategory =  $request->Review_Category;
+        $selectedDays = $request->Days;
+        $persons = $selectedGroup->people()->orderBy('people.id')->select("people.id", "first_name", "last_name")->get()
+        ->toArray();
+        $personIds = $selectedGroup->people()->orderBy('people.id')->pluck("people.id")->toArray();
+        $logs = Log::whereIn('person_id', $personIds)->orderBy('activity_date','desc')->orderBy('person_id')->get();
         $data = [];
-        foreach($persons as $person){
 
+        for ($i = 0; $i < $selectedDays; $i++){
+            $day = Carbon::today()->subDays($i)->toDateString();
+            $data[$i]['date'] = $day;
+            foreach($personIds as $personId){
+                $temp = $logs->where('activity_date', $day)->where('person_id', $personId)->first();
+                if($temp) {
+                    $tempVal = $temp->toArray();
+                    $data[$i][$personId] = $tempVal[$selectedReviewCategory];
+                }
+                else{
+                    $data[$i][$personId] = 'no data';
+                }
+            }
         }
-        dd($persons);
+        return view('review.group.list')->with(['selectedGroup' => $selectedGroup, 'selectedReviewCategory' => $selectedReviewCategory, 'selectedDays' => $selectedDays, 'personsInGroup' => $persons, 'groups' => $groups, 'data' => $data]);
     }
-
 }

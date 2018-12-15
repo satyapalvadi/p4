@@ -25,6 +25,18 @@
                 <option value='{{ $group->id }}'>{{ $group->name }}</option>
             @endforeach
         </select>
+        <label for='days_option_id'>* Select Days</label>
+        <select id='days_option_id' name='Days'>
+            <option value='5'>5 Days</option>
+            <option value='10'>10 Days</option>
+            <option value='15'>15 Days</option>
+        </select>
+        <label for='review_category'>* Select Category</label>
+        <select id='review_category' name='Review Category'>
+            <option value='weight'>Weight</option>
+            <option value='bmr'>BMR</option>
+            <option value='calories_burned'>Calories Burned</option>
+        </select>
         <input type='submit' value='GO' class='btn btn-primary'>
     </form>
 
