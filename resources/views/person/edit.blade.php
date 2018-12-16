@@ -6,7 +6,6 @@
 
 @push('head')
     <link href='/css/journal.css' rel='stylesheet'>
-    <link href='/css/people.css' rel='stylesheet'>
 @endpush
 
 @section('content')

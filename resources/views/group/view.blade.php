@@ -6,7 +6,6 @@
 
 @push('head')
     <link href='/css/journal.css' rel='stylesheet'>
-    <link href='/css/groups.css' rel='stylesheet'>
 @endpush
 
 @section('content')
@@ -16,7 +15,7 @@
                 <th>Group Name</th>
                 <th>Max Size</th>
                 <th>Current Size</th>
-                <th>Edit</th>
+                <th></th>
             </tr>
             @foreach($groups as $group)
                 <tr>
