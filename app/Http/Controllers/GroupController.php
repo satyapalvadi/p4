@@ -13,13 +13,13 @@ class GroupController extends Controller
     {
         $groups = Group::orderBy('name')->get();
         $data = [];
+
         foreach ($groups as $group) {
             $personCount = $group->people()->count();
             $temp = ['id' => $group->id, 'name' => $group->name, 'max_size' => $group->max_size, 'current_count' => $personCount];
             array_push($data, $temp);
         }
 
-        //return view('group.view')->with(['groups' => $groups]);
         return view('group.view')->with(['groups' => $data]);
     }
 
@@ -48,7 +48,7 @@ class GroupController extends Controller
         $group->save();
 
         return redirect('group/view')->with([
-            'alert' => 'Your group was created.'
+            'success-alert' => 'Group was created successfully.'
         ]);
     }
 
@@ -77,6 +77,6 @@ class GroupController extends Controller
 
         $group->save();
 
-        return redirect('/group/view')->with(["alert" => "Group is updated"]);
+        return redirect('/group/view')->with(["success-alert" => "Group was updated successfully."]);
     }
 }

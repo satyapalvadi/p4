@@ -60,7 +60,7 @@ class PersonController extends Controller
                 $fullGroupString = $fullGroupString . " " . $fullGroup;
             }
 
-            return redirect('person/create/display')->with(['alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.', 'first_name' => 'satya']);
+            return redirect('person/create/display')->with(['alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.']);
         }
 
         $person = new Person();
@@ -76,12 +76,9 @@ class PersonController extends Controller
         $person->groups()->sync($request->grps);
 
         return redirect('person/view')->with([
-            'alert' => 'A new person was created.'
+            'success-alert' => 'Individual was created successfully.'
         ]);
     }
-
-
-
 
     //GET to display edit from
     //GET /person/{id}/edit/display
@@ -107,6 +104,24 @@ class PersonController extends Controller
             'weight' => 'required'
         ]);
 
+        $selectedGroupsArray = Group::whereIn('id', $request->grps)->get();
+        $capacityFullGroups = [];
+
+        foreach ($selectedGroupsArray as $grp) {
+            $currentCapacity = Group::find($grp->id)->people()->count();
+            if ($currentCapacity >= $grp->max_size) {
+                array_push($capacityFullGroups, $grp->name);
+            }
+        }
+        if (count($capacityFullGroups) > 0) {
+            $fullGroupString = '';
+            foreach ($capacityFullGroups as $fullGroup) {
+                $fullGroupString = $fullGroupString . " " . $fullGroup;
+            }
+
+            return redirect('person/create/display')->with(['alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.']);
+        }
+
         $person = Person::find($id);
 
         $person->first_name = $request->first_name;
@@ -120,7 +135,7 @@ class PersonController extends Controller
 
         $person->groups()->sync($request->grps);
 
-        return redirect('/person/view')->with(["alert" => "Person updated"]);
+        return redirect('/person/view')->with(["success-alert" => "individual was updated successfully."]);
     }
 
     public function displayDeletePersonForm($id)
@@ -143,7 +158,7 @@ class PersonController extends Controller
         //then delete from people table
         $person->delete();
 
-        return redirect('/person/view')->with(["alert" => "All info related to the selected person was deleted."]);
+        return redirect('/person/view')->with(["success-alert" => "All info related to the selected individual was deleted successfully."]);
     }
 
 }

@@ -26,6 +26,12 @@
     </div>
 @endif
 
+@if(session('success-alert'))
+    <div class='success-alert'>
+        {{ session('success-alert') }}
+    </div>
+@endif
+
 <header>
     @include('modules.nav')
 </header>

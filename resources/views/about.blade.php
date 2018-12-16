@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>About</h1>
+    <h1>About Activity Tracker</h1>
     <p>
         @include('modules.description')
     </p>

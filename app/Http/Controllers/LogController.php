@@ -34,22 +34,18 @@ class LogController extends Controller
         $gender = $person->gender;
         $age = $person->age;
 
+        //calculate bmr
         $s = $gender == 'male' ? 5 : -161;
         $bmr_temp = ((9.99 * $request->weight) + (6.25 * $height) - (4.92 * $age) + $s);
         $bmr = round($bmr_temp, 0, PHP_ROUND_HALF_UP);
 
+        //calculate calories based on activity level
         $calories_burned = round($bmr * $activityMultipliers[$request->activity], 0, PHP_ROUND_HALF_UP);
 
-        $log = new Log();
-        $log->person_id = $request->person_id;
-        $log->activity_date = $request->activity_date;
-        $log->weight = $request->weight;
-        $log->activity = $request->activity;
-        $log->bmr = $bmr;
-        $log->calories_burned = $calories_burned;
+         //Only create a new record if no record exists for person/activity_date combination
+         Log::updateOrCreate(['person_id' => $request->person_id, 'activity_date' => $request->activity_date],
+            ['weight' => $request->weight, 'activity' => $request->activity, 'bmr' => $bmr, 'calories_burned' => $calories_burned]);
 
-        $log->save();
-
-        return redirect('/log')->with(["alert" => "Activity logged."]);
+        return redirect('/log')->with(["success-alert" => "Activity logged."]);
     }
 }
