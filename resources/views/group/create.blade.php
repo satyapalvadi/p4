@@ -26,6 +26,6 @@
         <input type='number' name='size' id='size' value='{{ old('size') }}'>
         @include('modules.field-error', ['field' => 'size'])
 
-        <input type='submit' value='Add' class='btn btn-primary'>
+        <input type='submit' value='Create' class='btn btn-primary'>
     </form>
 @endsection

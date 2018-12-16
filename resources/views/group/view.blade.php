@@ -23,7 +23,8 @@
                     <td>{{ $group['name'] }}</td>
                     <td class='numberColumn'>{{ $group['max_size'] }}</td>
                     <td class='numberColumn'>{{ $group['current_count'] }}</td>
-                    <td class='editColumn'><a href='/group/{{ $group['id'] }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
+                    <td class='editColumn'>
+                        <a href='/group/{{ $group['id'] }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
                 </tr>
             @endforeach
         </table>

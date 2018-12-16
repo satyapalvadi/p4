@@ -8,7 +8,6 @@ class ConnectPeopleAndLogs extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
@@ -21,14 +20,13 @@ class ConnectPeopleAndLogs extends Migration
 
     /**
      * Reverse the migrations.
-     *
      * @return void
      */
     public function down()
     {
         Schema::table('logs', function (Blueprint $table) {
             $table->dropForeign('logs_person_id_foreign');
-                $table->dropColumn('person_id');
+            $table->dropColumn('person_id');
         });
     }
 }

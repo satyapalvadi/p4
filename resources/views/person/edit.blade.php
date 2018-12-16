@@ -34,9 +34,9 @@
         <div>
             <input type='radio' id='Male' name='gender' value='Male'
             @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Male') {{ 'checked'  }} @endif
-            @else
-            @if(isset($gender)) @if($gender === 'Male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
-            @endif>
+                    @else
+                @if(isset($gender)) @if($gender === 'Male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
+                    @endif>
             <span>Male</span>
             <input type='radio' id='Female' name='gender' value='Female'
             @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Female') {{ 'checked'  }} @endif
@@ -65,7 +65,7 @@
                 <option @if(in_array($group->id, $selectedGroups)) {{ 'selected' }} @endif value='{{ $group->id }}'>{{ $group->name }}</option>
             @endforeach
         </select>
-        <input type='submit' value='Save changes' class='btn btn-primary'>
+        <input type='submit' value='Save' class='btn btn-primary'>
     </form>
 
 @endsection

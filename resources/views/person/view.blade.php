@@ -37,8 +37,10 @@
                             <div>{{ $selectedGroup }}</div>
                         @endforeach
                     </td>
-                    <td class='editColumn'><a href='/person/{{ $person->id }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
-                    <td class='editColumn'><a href='/person/{{ $person->id }}/delete/display'><i class="fas fa-trash-alt"></i></a></td>
+                    <td class='editColumn'>
+                        <a href='/person/{{ $person->id }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
+                    <td class='editColumn'>
+                        <a href='/person/{{ $person->id }}/delete/display'><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </table>

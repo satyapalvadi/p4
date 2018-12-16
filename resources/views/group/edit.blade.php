@@ -30,7 +30,7 @@
         <input type='number' name='size' id='size' value='{{ old('size', $group->max_size) }}'>
         @include('modules.field-error', ['field' => 'size'])
 
-        <input type='submit' value='Save changes' class='btn btn-primary'>
+        <input type='submit' value='Save' class='btn btn-primary'>
     </form>
 
 @endsection

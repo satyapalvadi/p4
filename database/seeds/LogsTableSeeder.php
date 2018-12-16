@@ -8,7 +8,6 @@ class LogsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -29,7 +28,6 @@ class LogsTableSeeder extends Seeder
             ['p1 alpha1', 167.4, '2018-12-13', 'low', 1703, 2044],
             ['p1 alpha1', 167.4, '2018-12-14', 'low', 1703, 2044],
             ['p1 alpha1', 167.5, '2018-12-15', 'low', 1703, 2044],
-
 
             ['p2 alpha2', 158, '2018-12-01', 'low', 1605, 1926],
             ['p2 alpha2', 157.9, '2018-12-02', 'light', 1605, 2207],

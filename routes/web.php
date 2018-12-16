@@ -17,49 +17,43 @@ Route::get('/log', 'LogController@displayLogForm');
 Route::post('/log/create', 'LogController@create');
 
 //Create a new group
-Route::get('group/create/display','GroupController@displayCreateGroupForm');
-Route::post('group/create','GroupController@create');
+Route::get('group/create/display', 'GroupController@displayCreateGroupForm');
+Route::post('group/create', 'GroupController@create');
 
 //Edit a group
-Route::get('group/{id}/edit/display','GroupController@displayEditGroupForm');
-Route::put('group/{id}/edit','GroupController@edit');
+Route::get('group/{id}/edit/display', 'GroupController@displayEditGroupForm');
+Route::put('group/{id}/edit', 'GroupController@edit');
 
 //Display all groups
-Route::get('group/view','GroupController@view');
+Route::get('group/view', 'GroupController@view');
 
 //Create a new person
-Route::get('person/create/display','PersonController@displayCreatePersonForm');
-Route::post('person/create','PersonController@create');
+Route::get('person/create/display', 'PersonController@displayCreatePersonForm');
+Route::post('person/create', 'PersonController@create');
 
 //Edit a person
-Route::get('person/{id}/edit/display','PersonController@displayEditPersonForm');
-Route::put('person/{id}/edit','PersonController@edit');
+Route::get('person/{id}/edit/display', 'PersonController@displayEditPersonForm');
+Route::put('person/{id}/edit', 'PersonController@edit');
 
-Route::get('person/{id}/delete/display','PersonController@displayDeletePersonForm');
-Route::delete('person/{id}/delete','PersonController@delete');
+Route::get('person/{id}/delete/display', 'PersonController@displayDeletePersonForm');
+Route::delete('person/{id}/delete', 'PersonController@delete');
 
 //Display all persons
-Route::get('person/view','PersonController@view');
+Route::get('person/view', 'PersonController@view');
 
+Route::get('review/person/display', 'ReviewController@displayReviewPerson');
+Route::get('review/person/list', 'ReviewController@listReviewPerson');
 
-Route::get('review/person/display','ReviewController@displayReviewPerson');
-Route::get('review/person/list','ReviewController@listReviewPerson');
-
-Route::get('review/group/display','ReviewController@displayReviewGroup');
-Route::get('review/group/list','ReviewController@listReviewGroup');
-
-
+Route::get('review/group/display', 'ReviewController@displayReviewGroup');
+Route::get('review/group/list', 'ReviewController@listReviewGroup');
 
 /*
  * Pages
  * Simple, static pages without a lot of logic
  */
 Route::view('/about', 'about');
-Route::view('/contact', 'contact');
-
 
 Route::get('/debug', function () {
-
     $debug = [
         'Environment' => App::environment(),
     ];
@@ -78,7 +72,7 @@ Route::get('/debug', function () {
         $debug['Database connection test'] = 'PASSED';
         $debug['Databases'] = array_column($databases, 'Database');
     } catch (Exception $e) {
-        $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
+        $debug['Database connection test'] = 'FAILED: ' . $e->getMessage();
     }
 
     dump($debug);

@@ -7,7 +7,6 @@ class GroupsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -20,7 +19,7 @@ class GroupsTableSeeder extends Seeder
         $count = count($groups);
 
         foreach ($groups as $groupData) {
-            $group= new Group();
+            $group = new Group();
 
             $group->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $group->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();

@@ -48,13 +48,13 @@
         @foreach ($data as $row)
             <tr>
                 @foreach($row as $key => $val)
-                <td>
-                    @if ($val == 'no data')
-                        -
-                    @else
-                        {{ $val }}
-                    @endif
-                </td>
+                    <td>
+                        @if ($val == 'no data')
+                            -
+                        @else
+                            {{ $val }}
+                        @endif
+                    </td>
                 @endforeach
             </tr>
         @endforeach

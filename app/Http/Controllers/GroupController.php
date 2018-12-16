@@ -9,14 +9,16 @@ class GroupController extends Controller
 {
     //GET a list of all groups
     //GET /group/view
-    public function view(){
+    public function view()
+    {
         $groups = Group::orderBy('name')->get();
         $data = [];
-        foreach($groups as $group){
+        foreach ($groups as $group) {
             $personCount = $group->people()->count();
-            $temp = ['id'=>$group->id, 'name'=>$group->name, 'max_size'=>$group->max_size, 'current_count'=>$personCount];
+            $temp = ['id' => $group->id, 'name' => $group->name, 'max_size' => $group->max_size, 'current_count' => $personCount];
             array_push($data, $temp);
         }
+
         //return view('group.view')->with(['groups' => $groups]);
         return view('group.view')->with(['groups' => $data]);
     }
@@ -24,13 +26,15 @@ class GroupController extends Controller
 
     //GET the empty form to create group.
     //GET /group/create/display
-    public function displayCreateGroupForm(){
+    public function displayCreateGroupForm()
+    {
         return view('group.create');
     }
 
     //POST to create a group
     //POST /group/create
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'size' => 'required',
@@ -50,14 +54,17 @@ class GroupController extends Controller
 
     //GET to display edit from
     //GET /group/{id}/edit/display
-    public function displayEditGroupForm($id){
+    public function displayEditGroupForm($id)
+    {
         $group = Group::find($id);
+
         return view('group.edit')->with(['group' => $group]);
     }
 
     //PUT to edit a group
     //PUT /group/{id}/edit
-    public function edit(Request $request, $id){
+    public function edit(Request $request, $id)
+    {
         $request->validate([
             'name' => 'required',
             'size' => 'required',

@@ -9,14 +9,16 @@ use App\Log;
 class LogController extends Controller
 {
     //GET Log Entry form
-    public function displayLogForm(){
+    public function displayLogForm()
+    {
         $persons = Person::orderBy('first_name')->get();
-        return view('log.create')->with(["persons"=>$persons]);
+
+        return view('log.create')->with(["persons" => $persons]);
     }
 
     //POST /log/create
-    public function create(Request $request){
-
+    public function create(Request $request)
+    {
         $request->validate([
             'activity_date' => 'required',
             'activity' => 'required',

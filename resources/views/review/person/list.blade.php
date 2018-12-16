@@ -36,13 +36,13 @@
             <th>Calories Burned</th>
         </tr>
         @foreach($logs as $log)
-        <tr>
-            <td>{{ $log->activity_date }}</td>
-            <td>{{ $log->weight }}</td>
-            <td>{{ $log->activity }}</td>
-            <td>{{ $log->bmr }}</td>
-            <td>{{ $log->calories_burned }}</td>
-        </tr>
+            <tr>
+                <td>{{ $log->activity_date }}</td>
+                <td>{{ $log->weight }}</td>
+                <td>{{ $log->activity }}</td>
+                <td>{{ $log->bmr }}</td>
+                <td>{{ $log->calories_burned }}</td>
+            </tr>
         @endforeach
     </table>
 @endsection

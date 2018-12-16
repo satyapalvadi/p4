@@ -18,8 +18,11 @@
     <form method='POST' action='/person/create'>
         {{ csrf_field() }}
         <label for='name'>* First Name</label>
-        <input type='text' name='first_name' id='first_name'
-        @if(old('first_name')) value='{{ old('first_name') }}' @else @if(isset($first_name)) value='{{ $first_name }}' @endif @endif>
+        <input type='text'
+               name='first_name'
+               id='first_name'
+               @if(old('first_name')) value='{{ old('first_name') }}'
+               @else @if(isset($first_name)) value='{{ $first_name }}' @endif @endif>
         @include('modules.field-error', ['field' => 'first_name'])
 
         <label for='name'>* Last Name</label>
@@ -29,16 +32,16 @@
         <div display='flex'>
             <label for='gender'>* Gender</label>
             <input type='radio' id='Male' name='gender' value='Male'
-                @if(old('gender'))  @if(old('gender') === 'Male') {{ 'checked'  }} @endif
-                @else
+            @if(old('gender'))  @if(old('gender') === 'Male') {{ 'checked'  }} @endif
+                    @else
                 @if(isset($gender)) @if($gender === 'Male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
-                @endif>
+                    @endif>
             <span>Male</span>
             <input type='radio' id='Female' name='gender' value='Female'
-                @if(old('gender'))  @if(old('gender') === 'Female') {{ 'checked'  }} @endif
-                @else
+            @if(old('gender'))  @if(old('gender') === 'Female') {{ 'checked'  }} @endif
+                    @else
                 @if(isset($gender) && $gender === 'Female') {{ 'checked' }} @endif>
-                @endif
+            @endif
             <span>Female</span>
         </div>
         @include('modules.field-error', ['field' => 'gender'])
@@ -62,7 +65,7 @@
             @endforeach
         </select>
 
-        <input type='submit' value='Add' class='btn btn-primary'>
+        <input type='submit' value='Create' class='btn btn-primary'>
     </form>
 
 @endsection
