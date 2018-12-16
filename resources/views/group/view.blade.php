@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    All Groups
+    View all Groups
 @endsection
 
 @push('head')

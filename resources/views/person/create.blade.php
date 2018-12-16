@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Create an Individual
+    Create Individual
 @endsection
 
 @push('head')

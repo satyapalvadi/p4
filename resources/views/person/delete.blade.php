@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Person Log
+    Delete Individual
 @endsection
 
 @push('head')

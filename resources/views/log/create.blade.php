@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Enter Activity
+    Log Activity
 @endsection
 
 @push('head')

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    All Persons
+    View all Individuals
 @endsection
 
 @push('head')

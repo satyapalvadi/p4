@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Person Log
+    Review Activity (Group)
 @endsection
 
 @push('head')

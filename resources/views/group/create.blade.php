@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Create a Group
+    Create Group
 @endsection
 
 @push('head')
