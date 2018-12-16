@@ -13,15 +13,16 @@
     <section id='peopleTable'>
         <table style='width: 100%'>
             <tr>
+                <th>Delete</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Gender</th>
-                <th>Age</th>
-                <th>Height</th>
-                <th>Weight</th>
+                <th>Age (years)</th>
+                <th>Height (inches)</th>
+                <th>Weight (lbs)</th>
                 <th>Groups</th>
                 <th>Edit</th>
-                <th>Delete</th>
+
             </tr>
             @foreach($people as $person)
                 <tr>
@@ -36,8 +37,8 @@
                             <div>{{ $selectedGroup }}</div>
                         @endforeach
                     </td>
-                    <td class='edit'><a href='/person/{{ $person->id }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
-                    <td class='edit'><a href='/person/{{ $person->id }}/delete/display'><i class="fas fa-trash-alt"></i></a></td>
+                    <td class='editColumn'><a href='/person/{{ $person->id }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
+                    <td class='editColumn'><a href='/person/{{ $person->id }}/delete/display'><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </table>

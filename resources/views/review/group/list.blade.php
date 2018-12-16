@@ -16,8 +16,6 @@
         </div>
     @endif
 
-    <h1>Review Group Activity</h1>
-
     <form method='GET' action='/review/group/list'>
         <label for='group_id'>* Select Group</label>
         <select id='group_id' name='group_id'>
@@ -40,7 +38,6 @@
         </select>
         <input type='submit' value='GO' class='btn btn-primary'>
     </form>
-    <h2>Activity Results</h2>
     <table>
         <tr>
             <th>Activity Date</th>

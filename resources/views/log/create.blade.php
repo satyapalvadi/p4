@@ -16,10 +16,7 @@
         </div>
     @endif
 
-    <h1>Add new activity</h1>
-
     <form method='POST' action='/log/create'>
-        <div class='details'>* Required fields</div>
         {{ csrf_field() }}
 
         <label for='person_id'>* Select Person</label>
@@ -33,9 +30,8 @@
         <input type='date' name='activity_date' id='activity_date' value='{{ old('activity_date') }}'>
         @include('modules.field-error', ['field' => 'activity_date'])
 
-        <label for='weight'>* Today's Weight</label>
+        <label for='weight'>* Today's Weight (lbs)</label>
         <input type='number' name='weight' id='weight' value='{{ old('weight') }}'>
-        <span> lbs </span>
         @include('modules.field-error', ['field' => 'weight'])
 
 

@@ -16,8 +16,6 @@
         </div>
     @endif
 
-    <h2>Review activity</h2>
-
     <form method='GET' action='/review/person/list'>
         <label for='person_id'>* Select Person</label>
         <select id='person_id' name='person_id'>
@@ -29,13 +27,12 @@
         <input type='submit' value='GO' class='btn btn-primary'>
     </form>
 
-    <h2>Activity Results</h2>
     <table>
         <tr>
             <th>Activity Date</th>
-            <th>Weight</th>
+            <th>Weight (lbs)</th>
             <th>Activity Level</th>
-            <th>BMR</th>
+            <th>BMR (Calories)</th>
             <th>Calories Burned</th>
         </tr>
         @foreach($logs as $log)

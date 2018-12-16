@@ -19,7 +19,6 @@
     <h1>Edit Group</h1>
 
     <form method='POST' action='/group/{{ $group->id }}/edit'>
-        <div class='details'>* Required fields</div>
         {{ method_field('put') }}
         {{ csrf_field() }}
 

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit Person
+    Edit Individual
 @endsection
 
 @push('head')
@@ -16,10 +16,9 @@
         </div>
     @endif
 
-    <h1>Edit Person</h1>
+    <h1>Edit Individual</h1>
 
     <form method='POST' action='/person/{{ $person->id }}/edit'>
-        <div class='details'>* Required fields</div>
         {{ method_field('put') }}
         {{ csrf_field() }}
 
@@ -32,33 +31,32 @@
         @include('modules.field-error', ['field' => 'last_name'])
 
         <label for='size'>* Gender</label>
-        <input type='radio' id='Male' name='gender' value='Male'
-        @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Male') {{ 'checked'  }} @endif
-        @else
-        @if(isset($gender)) @if($gender === 'Male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
-        @endif>
-        <span>Male</span>
-        <input type='radio' id='Female' name='gender' value='Female'
-        @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Female') {{ 'checked'  }} @endif
-                @else
-            @if(isset($gender) && $gender === 'Female') {{ 'checked' }} @endif>
-        @endif
-        <span>Female</span>
+        <div>
+            <input type='radio' id='Male' name='gender' value='Male'
+            @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Male') {{ 'checked'  }} @endif
+            @else
+            @if(isset($gender)) @if($gender === 'Male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
+            @endif>
+            <span>Male</span>
+            <input type='radio' id='Female' name='gender' value='Female'
+            @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Female') {{ 'checked'  }} @endif
+                    @else
+                @if(isset($gender) && $gender === 'Female') {{ 'checked' }} @endif>
+            @endif
+            <span>Female</span>
+        </div>
         @include('modules.field-error', ['field' => 'gender'])
 
-        <label for='age'>* Age</label>
+        <label for='age'>* Age (Years)</label>
         <input type='number' name='age' id='age' value='{{ old('age', $person->age) }}'>
-        <span> Years </span>
         @include('modules.field-error', ['field' => 'age'])
 
-        <label for='weight'>* Weight</label>
+        <label for='weight'>* Weight (lbs)</label>
         <input type='number' name='weight' id='weight' value='{{ old('weight', $person->weight) }}'>
-        <span> lbs </span>
         @include('modules.field-error', ['field' => 'weight'])
 
-        <label for='age'>* Height</label>
+        <label for='age'>* Height (inches)</label>
         <input type='number' name='height' id='height' value='{{ old('height', $person->height) }}'>
-        <span> in </span>
         @include('modules.field-error', ['field' => 'height'])
 
         <label for='grps'>* Groups</label>

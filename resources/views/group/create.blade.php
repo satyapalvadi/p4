@@ -15,10 +15,7 @@
         </div>
     @endif
 
-    <h1>Add a new Group</h1>
-
     <form method='POST' action='/group/create'>
-        <div class='details'>* Required fields</div>
         {{ csrf_field() }}
 
         <label for='name'>* Name</label>
@@ -31,5 +28,4 @@
 
         <input type='submit' value='Add' class='btn btn-primary'>
     </form>
-
 @endsection

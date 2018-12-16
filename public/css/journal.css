@@ -24,7 +24,7 @@ body {
 }
 
 section#main {
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
     margin: auto;
     padding-bottom: 20px;
@@ -33,7 +33,7 @@ section#main {
 
 header {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #logo {
@@ -60,8 +60,8 @@ nav {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     padding: 5px;
-    margin-top: 10px;
     margin-bottom: 20px;
+    color:#4CAF50;
 }
 
 nav ul {
@@ -82,10 +82,30 @@ nav ul li {
 
 nav ul li a:link {
     text-decoration: none;
+    color: #4CAF50;
 }
 
-nav ul li a:hover {
-    color: #18bc9c; /* teel */
+/* Sub Menus */
+nav li ul {
+    position: absolute;
+    display: none;
+    width: inherit;
+    background-color: black;
+    text-align: left;
+}
+
+nav li:hover ul {
+    display: block;
+    color: white;
+}
+
+nav li ul li {
+    display: block;
+    color: white;
+}
+
+nav li ul li a{
+    color: white;
 }
 
 /*----------------------------------------------------
@@ -123,7 +143,7 @@ label, legend {
     text-transform: uppercase;
 }
 
-input[type=text], input[type=email], input[type=password], textarea, select {
+input[type=text], input[type=email], input[type=password], input[type=number], textarea, select {
     display: block;
     width: 100%;
     font-size: 1.5rem;
@@ -207,4 +227,100 @@ Misc
 
 .cf {
     *zoom: 1;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 5px 10px 5px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #4CAF50;
+}
+
+.fa-trash-alt, .fa-pencil-alt{
+    color: #4CAF50;
+}
+
+.editColumn{
+    text-align: center;
+}
+
+.numberColumn{
+    text-align: right;
+}
+
+td {
+    text-align: left;
+}
+
+th {
+    text-align: center;
+}
+
+th{
+    height: 50px;
+}
+
+tr:hover {background-color: #f5f5f5;}
+
+.container-style {
+    border: 5px black solid;
+    padding: 10px 0 10px 0;
+}
+
+.no-right-gutter {
+    padding: 0 !important;
+}
+
+.output-title {
+    padding: 20px 0 10px 0;
+}
+
+.output-row {
+    font-size: 1.4em;
+    padding: 5px 0 5px 0;
+}
+
+.table-row {
+    padding: 20px 0 5px 0;
+}
+
+.table {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.table-caption {
+    text-align: center;
+}
+
+.matched-activity-table-cell {
+    font-weight: bold;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

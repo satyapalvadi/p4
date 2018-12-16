@@ -2,25 +2,25 @@
     <ul>
         <li><a href="/log">Log</a></li>
         <li class='dropdown'>
-            <a href="javascript:void(0)" class="dropbtn">Group</a>
-            <div class="dropdown-content">
-                <a href="/group/create/display">Create</a>
-                <a href="/group/view">View</a>
-            </div>
+            <a href="#" class="dropbtn">Group</a>
+            <ul class="dropdown-content">
+                <li><a href="/group/create/display">Create</a></li>
+                <li><a href="/group/view">View</a></li>
+            </ul>
         </li>
         <li class='dropdown'>
-            <a href="javascript:void(0)" class="dropbtn">Person</a>
-            <div class="dropdown-content">
-                <a href="/person/create/display">Create</a>
-                <a href="/person/view">View</a>
-            </div>
+            <a href="#" class="dropbtn">Individual</a>
+            <ul class="dropdown-content">
+                <li><a href="/person/create/display">Create</a></li>
+                <li><a href="/person/view">View</a></li>
+            </ul>
         </li>
         <li class='dropdown'>
-            <a href="javascript:void(0)" class="dropbtn">Review</a>
-            <div class="dropdown-content">
-                <a href="/review/group/display">Group</a>
-                <a href="/review/person/display">Person</a>
-            </div>
+            <a href="#" class="dropbtn">Review</a>
+            <ul class="dropdown-content">
+                <li><a href="/review/group/display">Group</a></li>
+                <li><a href="/review/person/display">Individual</a></li>
+            </ul>
         </li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
