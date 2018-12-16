@@ -20,10 +20,10 @@
             </tr>
             @foreach($groups as $group)
                 <tr>
-                    <td>{{ $group->name }}</td>
-                    <td>{{ $group->max_size }}</td>
-                    <td> 0 </td>
-                    <td class='edit'><a href='/group/{{ $group->id }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
+                    <td>{{ $group['name'] }}</td>
+                    <td>{{ $group['max_size'] }}</td>
+                    <td>{{ $group['current_count'] }}</td>
+                    <td class='edit'><a href='/group/{{ $group['id'] }}/edit/display'><i class="fas fa-pencil-alt"></i></a></td>
                 </tr>
             @endforeach
         </table>

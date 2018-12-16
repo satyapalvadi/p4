@@ -32,16 +32,16 @@
         @include('modules.field-error', ['field' => 'last_name'])
 
         <label for='size'>* Gender</label>
-        <input type='radio' id='male' name='gender' value='male'
-        @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'male') {{ 'checked'  }} @endif
+        <input type='radio' id='Male' name='gender' value='Male'
+        @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Male') {{ 'checked'  }} @endif
         @else
-        @if(isset($gender)) @if($gender === 'male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
+        @if(isset($gender)) @if($gender === 'Male') {{ 'checked' }} @endif @else {{ 'checked' }} @endif
         @endif>
         <span>Male</span>
-        <input type='radio' id='female' name='gender' value='female'
-        @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'female') {{ 'checked'  }} @endif
+        <input type='radio' id='Female' name='gender' value='Female'
+        @if(old('gender', $person->gender))  @if(old('gender', $person->gender) === 'Female') {{ 'checked'  }} @endif
                 @else
-            @if(isset($gender) && $gender === 'female') {{ 'checked' }} @endif>
+            @if(isset($gender) && $gender === 'Female') {{ 'checked' }} @endif>
         @endif
         <span>Female</span>
         @include('modules.field-error', ['field' => 'gender'])

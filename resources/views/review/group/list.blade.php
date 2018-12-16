@@ -26,6 +26,18 @@
                 >{{ $group->name }}</option>
             @endforeach
         </select>
+        <label for='days_option_id'>* Select Days</label>
+        <select id='days_option_id' name='Days'>
+            <option value='5' @if($selectedDays == '5'){{ 'selected' }} @endif>5 Days</option>
+            <option value='10' @if($selectedDays == '10'){{ 'selected' }} @endif>10 Days</option>
+            <option value='15' @if($selectedDays == '15'){{ 'selected' }} @endif>15 Days</option>
+        </select>
+        <label for='review_category'>* Select Category</label>
+        <select id='review_category' name='Review Category'>
+            <option value='weight' @if($selectedReviewCategory == 'weight'){{ 'selected' }} @endif>Weight (lbs)</option>
+            <option value='bmr' @if($selectedReviewCategory == 'bmr'){{ 'selected' }} @endif>BMR (Calories)</option>
+            <option value='calories_burned' @if($selectedReviewCategory == 'calories_burned'){{ 'selected' }} @endif>Calories Burned</option>
+        </select>
         <input type='submit' value='GO' class='btn btn-primary'>
     </form>
     <h2>Activity Results</h2>

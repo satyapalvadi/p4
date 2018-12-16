@@ -11,7 +11,14 @@ class GroupController extends Controller
     //GET /group/view
     public function view(){
         $groups = Group::orderBy('name')->get();
-        return view('group.view')->with(['groups' => $groups]);
+        $data = [];
+        foreach($groups as $group){
+            $personCount = $group->people()->count();
+            $temp = ['id'=>$group->id, 'name'=>$group->name, 'max_size'=>$group->max_size, 'current_count'=>$personCount];
+            array_push($data, $temp);
+        }
+        //return view('group.view')->with(['groups' => $groups]);
+        return view('group.view')->with(['groups' => $data]);
     }
 
 

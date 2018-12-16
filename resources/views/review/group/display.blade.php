@@ -33,8 +33,8 @@
         </select>
         <label for='review_category'>* Select Category</label>
         <select id='review_category' name='Review Category'>
-            <option value='weight'>Weight</option>
-            <option value='bmr'>BMR</option>
+            <option value='weight'>Weight (lbs)</option>
+            <option value='bmr'>BMR (Calories)</option>
             <option value='calories_burned'>Calories Burned</option>
         </select>
         <input type='submit' value='GO' class='btn btn-primary'>

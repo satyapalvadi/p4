@@ -40,6 +40,23 @@ class PersonController extends Controller
             'weight' => 'required'
         ]);
 
+        $selectedGroupsArray = Group::whereIn('id', $request->grps)->get();
+        $capacityFullGroups = [];
+
+        foreach($selectedGroupsArray as $grp){
+            $currentCapacity = Group::find($grp->id)->people()->count();
+            if($currentCapacity >= $grp->max_size){
+                array_push($capacityFullGroups, $grp->name);
+            }
+        }
+        if(count($capacityFullGroups) > 0) {
+            $fullGroupString = '';
+            foreach($capacityFullGroups as $fullGroup){
+                $fullGroupString = $fullGroupString . " " . $fullGroup;
+            }
+            return redirect('person/create/display')->with(['alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.', 'first_name' => 'satya']);
+        }
+
         $person = new Person();
 
         $person->first_name = $request->first_name;
@@ -57,6 +74,9 @@ class PersonController extends Controller
             'alert' => 'A new person was created.'
         ]);
     }
+
+
+
 
     //GET to display edit from
     //GET /person/{id}/edit/display
