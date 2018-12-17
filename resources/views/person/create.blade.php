@@ -17,7 +17,7 @@
 
     <form method='POST' action='/person/create'>
         {{ csrf_field() }}
-        <label for='name'>* First Name</label>
+        <label for='first_name'>* First Name</label>
         <input type='text'
                name='first_name'
                id='first_name'
@@ -25,13 +25,13 @@
                @else @if(session('first_name')) value='{{ session('first_name') }}' @endif @endif>
         @include('modules.field-error', ['field' => 'first_name'])
 
-        <label for='name'>* Last Name</label>
+        <label for='last_name'>* Last Name</label>
         <input type='text' name='last_name' id='last_name'
                @if(old('last_name')) value='{{ old('last_name') }}'
                @else @if(session('last_name')) value='{{ session('last_name') }}' @endif @endif>
         @include('modules.field-error', ['field' => 'last_name'])
 
-        <div display='flex'>
+        <div>
             <label for='gender'>* Gender</label>
             <input type='radio' id='Male' name='gender' value='Male'
             @if(old('gender'))  @if(old('gender') === 'Male') {{ 'checked'  }} @endif
@@ -70,11 +70,13 @@
         <select id='grps' name='grps[]' multiple>
             @foreach($groups as $group)
                 <option @if(old('grps')) {{ in_array($group->id, old('grps')) ? 'selected' : '' }}
-                @else @if(session('grps')) {{ in_array($group->id, session('grps')) ? 'selected' : '' }} @endif  @endif value='{{ $group->id}}'>{{ $group->name }}</option>
+                        @else @if(session('grps')) {{ in_array($group->id, session('grps')) ? 'selected' : '' }} @endif  @endif value='{{ $group->id}}'>{{ $group->name }}</option>
             @endforeach
         </select>
 
-        <input type='submit' value=@if(session('req_type') == 'create'){{ 'Create' }} @elseif(session('req_type') == 'edit'){{ 'Save' }} @else {{ 'Create' }} @endif class='btn btn-primary'>
+        <input type='submit'
+               value=@if(session('req_type') == 'create'){{ 'Create' }} @elseif(session('req_type') == 'edit'){{ 'Save' }} @else {{ 'Create' }} @endif class='btn
+               btn-primary'>
     </form>
 
 @endsection

@@ -8,6 +8,6 @@
 
     <p>
         The source code for this project can be viewed here:
-        <a href='https://github.com/satyapalvadi/p4'>https://github.com/satyapalvadi/p4</a></p>
+        <a href='https://github.com/satyapalvadi/p4'>https://github.com/satyapalvadi/p4</a>
     </p>
 @endsection

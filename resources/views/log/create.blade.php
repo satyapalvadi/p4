@@ -25,7 +25,7 @@
             @endforeach
         </select>
 
-        <label for='name'>* Activity Date</label>
+        <label for='activity_date'>* Activity Date</label>
         <input type='date' name='activity_date' id='activity_date' value='{{ old('activity_date') }}'>
         @include('modules.field-error', ['field' => 'activity_date'])
 
@@ -68,7 +68,6 @@
             </option>
         </select>
         @include('modules.field-error', ['field' => 'activity_level'])
-
 
         <input type='submit' value='Add' class='btn btn-primary'>
     </form>
