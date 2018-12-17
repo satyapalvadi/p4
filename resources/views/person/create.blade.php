@@ -32,7 +32,7 @@
         @include('modules.field-error', ['field' => 'last_name'])
 
         <div>
-            <label for='gender'>* Gender</label>
+            <label>* Gender</label>
             <input type='radio' id='Male' name='gender' value='Male'
             @if(old('gender'))  @if(old('gender') === 'Male') {{ 'checked'  }} @endif
                     @else
