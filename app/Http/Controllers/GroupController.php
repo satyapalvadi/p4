@@ -15,6 +15,7 @@ class GroupController extends Controller
         $data = [];
 
         foreach ($groups as $group) {
+            //retrieve the count of people that are already present in each group.
             $personCount = $group->people()->count();
             $temp = ['id' => $group->id, 'name' => $group->name, 'max_size' => $group->max_size, 'current_count' => $personCount];
             array_push($data, $temp);

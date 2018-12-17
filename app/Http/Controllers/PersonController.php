@@ -9,6 +9,8 @@ use App\Log;
 
 class PersonController extends Controller
 {
+    //GET /person/view
+    //Display all people present in the db
     public function view()
     {
         $people = Person::orderBy('last_name')->get();
@@ -23,8 +25,8 @@ class PersonController extends Controller
         return view('person.view')->with(['people' => $data]);
     }
 
-    //GET the empty form to create group.
-    //GET /group/create/display
+    //GET the empty form to create person.
+    //GET /person/create/display
     public function displayCreatePersonForm()
     {
         $groups = Group::getForDropdown();
@@ -32,7 +34,7 @@ class PersonController extends Controller
         return view('person.create')->with(['groups' => $groups]);
     }
 
-    //POST to create a person
+    //Process POST to create a person
     //POST /person/create
     public function create(Request $request)
     {
@@ -45,6 +47,7 @@ class PersonController extends Controller
             'weight' => 'required|numeric|min:0'
         ]);
 
+        //check if selected groups are full
         $selectedGroupsArray = Group::whereIn('id', $request->grps)->get();
         $capacityFullGroups = [];
 
@@ -60,6 +63,7 @@ class PersonController extends Controller
                 $fullGroupString = $fullGroupString . " " . $fullGroup;
             }
 
+            //if at least one group is full, redirect to the create page.
             return redirect('person/create/display')->with([
                 'alert' => 'These selected group(s) are full: ' . $fullGroupString . ' .Please select other groups and try again.',
                 'first_name' => $request->first_name,
@@ -113,6 +117,7 @@ class PersonController extends Controller
             'weight' => 'required'
         ]);
 
+        //check if selected groups are full
         $selectedGroupsArray = Group::whereIn('id', $request->grps)->get();
         $capacityFullGroups = [];
 
@@ -158,13 +163,7 @@ class PersonController extends Controller
         return redirect('/person/view')->with(["success-alert" => "individual was updated successfully."]);
     }
 
-    public function displayDeletePersonForm($id)
-    {
-        $person = Person::find($id);
-
-        return view('person.delete')->with(['person' => $person]);
-    }
-
+    //PUT to delete ta person
     public function delete(Request $request, $id)
     {
         $person = Person::find($id);

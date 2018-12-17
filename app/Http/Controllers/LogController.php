@@ -12,7 +12,6 @@ class LogController extends Controller
     public function displayLogForm()
     {
         $persons = Person::orderBy('first_name')->get();
-
         return view('log.create')->with(["persons" => $persons]);
     }
 

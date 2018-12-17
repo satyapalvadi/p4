@@ -10,7 +10,8 @@ use App\Group;
 
 class ReviewController extends Controller
 {
-    //GET
+    //GET to display form to select a person to review
+    //GET review/person/display
     public function displayReviewPerson()
     {
         $persons = Person::orderBy('first_name')->get();
@@ -18,7 +19,8 @@ class ReviewController extends Controller
         return view('review.person.display')->with(["persons" => $persons]);
     }
 
-    //GET
+    //Display results
+    //GET review/person/list
     public function listReviewPerson(Request $request)
     {
         $logs = Log::where('person_id', '=', $request->person_id)->orderBy('activity_date')->get();
@@ -28,7 +30,8 @@ class ReviewController extends Controller
         return view('review.person.list')->with(["persons" => $persons, "logs" => $logs, "selectedPerson" => $selectedPerson]);
     }
 
-    //GET
+    //GET to display form to select a group to review
+    //GET review/group/display
     public function displayReviewGroup()
     {
         $groups = Group::orderBy('name')->get();
@@ -36,19 +39,28 @@ class ReviewController extends Controller
         return view('review.group.display')->with(["groups" => $groups]);
     }
 
-    //GET
+    //Display results
+    //GET review/group/list
     public function listReviewGroup(Request $request)
     {
         $groups = Group::orderBy('name')->get();
+
+        //retrieve selected group info
         $selectedGroup = Group::find($request->group_id);
         $selectedReviewCategory = $request->Review_Category;
         $selectedDays = $request->Days;
+
+        //get a list of all people present in the selected group
         $persons = $selectedGroup->people()->orderBy('people.id')->select("people.id", "first_name", "last_name")->get()
             ->toArray();
         $personIds = $selectedGroup->people()->orderBy('people.id')->pluck("people.id")->toArray();
+
+        //get logs related to all people present in the group.
         $logs = Log::whereIn('person_id', $personIds)->orderBy('activity_date', 'desc')->orderBy('person_id')->get();
         $data = [];
 
+        //pivot data for display
+        //data | p1's selected review attribute | p2's selected review attribute | p3's selected review attribute | .... etc
         for ($i = 0; $i < $selectedDays; $i++) {
             $day = Carbon::today()->subDays($i)->toDateString();
             $data[$i]['date'] = $day;

@@ -41,9 +41,11 @@ Route::delete('person/{id}/delete', 'PersonController@delete');
 //Display all persons
 Route::get('person/view', 'PersonController@view');
 
+//Review Individual performance
 Route::get('review/person/display', 'ReviewController@displayReviewPerson');
 Route::get('review/person/list', 'ReviewController@listReviewPerson');
 
+//Review group performance
 Route::get('review/group/display', 'ReviewController@displayReviewGroup');
 Route::get('review/group/list', 'ReviewController@listReviewGroup');
 
