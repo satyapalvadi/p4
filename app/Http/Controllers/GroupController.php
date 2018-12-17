@@ -37,7 +37,7 @@ class GroupController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'size' => 'required',
+            'size' => 'required|numeric|min:0',
         ]);
 
         $group = new Group();
@@ -67,7 +67,7 @@ class GroupController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'size' => 'required',
+            'size' => 'required|numeric|min:0',
         ]);
 
         $group = Group::find($id);

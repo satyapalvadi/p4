@@ -15,8 +15,6 @@
         </div>
     @endif
 
-    <h1>Edit Individual</h1>
-
     <form method='POST' action='/person/{{ $person->id }}/edit'>
         {{ method_field('put') }}
         {{ csrf_field() }}

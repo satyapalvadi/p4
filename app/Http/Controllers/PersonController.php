@@ -40,9 +40,9 @@ class PersonController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'gender' => 'required',
-            'age' => 'required',
-            'height' => 'required',
-            'weight' => 'required'
+            'age' => 'required|numeric|min:0',
+            'height' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0'
         ]);
 
         $selectedGroupsArray = Group::whereIn('id', $request->grps)->get();
@@ -60,7 +60,16 @@ class PersonController extends Controller
                 $fullGroupString = $fullGroupString . " " . $fullGroup;
             }
 
-            return redirect('person/create/display')->with(['alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.']);
+            return redirect('person/create/display')->with([
+                'alert' => 'These selected group(s) are full: ' . $fullGroupString . ' .Please select other groups and try again.',
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'gender' => $request->gender,
+                'age' => $request->age,
+                'height' => $request->height,
+                'weight' => $request->weight,
+                'grps' => $request->grps,
+                'req_type' => 'create']);
         }
 
         $person = new Person();
@@ -119,7 +128,18 @@ class PersonController extends Controller
                 $fullGroupString = $fullGroupString . " " . $fullGroup;
             }
 
-            return redirect('person/create/display')->with(['alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.']);
+            return redirect('person/create/display')->with([
+                'alert' => 'These selected groups are full: ' . $fullGroupString . ' Please select other groups and try again.',
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'gender' => $request->gender,
+                'age' => $request->age,
+                'height' => $request->height,
+                'weight' => $request->weight,
+                'grps' => $request->grps,
+                'req_type' => 'edit'
+
+            ]);
         }
 
         $person = Person::find($id);

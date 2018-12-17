@@ -22,7 +22,7 @@ class LogController extends Controller
         $request->validate([
             'activity_date' => 'required',
             'activity' => 'required',
-            'weight' => 'required'
+            'weight' => 'required|numeric|min:0'
         ]);
 
         # Load activity multipliers from the data file

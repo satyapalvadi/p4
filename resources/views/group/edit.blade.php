@@ -15,8 +15,6 @@
         </div>
     @endif
 
-    <h1>Edit Group</h1>
-
     <form method='POST' action='/group/{{ $group->id }}/edit'>
         {{ method_field('put') }}
         {{ csrf_field() }}
