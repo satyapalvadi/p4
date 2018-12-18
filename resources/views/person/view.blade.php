@@ -16,11 +16,10 @@
                 <th>Name</th>
                 <th>Gender</th>
                 <th>Age (years)</th>
-                <th>Height (inches)</th>
                 <th>Weight (lbs)</th>
+                <th>Height (inches)</th>
                 <th>Groups</th>
                 <th></th>
-
             </tr>
             @foreach($people as $person)
                 <tr>

@@ -23,7 +23,7 @@ class ReviewController extends Controller
     //GET review/person/list
     public function listReviewPerson(Request $request)
     {
-        $logs = Log::where('person_id', '=', $request->person_id)->orderBy('activity_date')->get();
+        $logs = Log::where('person_id', '=', $request->person_id)->orderBy('activity_date', 'desc')->get();
         $persons = Person::orderBy('first_name')->get();
         $selectedPerson = Person::find($request->person_id);
 
