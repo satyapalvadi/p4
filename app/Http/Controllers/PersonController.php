@@ -180,4 +180,10 @@ class PersonController extends Controller
         return redirect('/person/view')->with(["success-alert" => "All info related to the selected individual was deleted successfully."]);
     }
 
+    //delete form confirmation page
+    public function displayDeletePersonForm($id)
+    {
+        $person = Person::find($id);
+        return view('person.delete')->with(['person' => $person]);
+    }
 }

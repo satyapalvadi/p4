@@ -27,6 +27,8 @@
             <option value='5'>5 Days</option>
             <option value='10'>10 Days</option>
             <option value='15'>15 Days</option>
+            <option value='30'>30 Days</option>
+            <option value='60'>60 Days</option>
         </select>
         <label for='review_category'>* Select Category</label>
         <select id='review_category' name='Review Category'>

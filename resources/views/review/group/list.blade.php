@@ -28,6 +28,8 @@
             <option value='5' @if($selectedDays == '5'){{ 'selected' }} @endif>5 Days</option>
             <option value='10' @if($selectedDays == '10'){{ 'selected' }} @endif>10 Days</option>
             <option value='15' @if($selectedDays == '15'){{ 'selected' }} @endif>15 Days</option>
+            <option value='30' @if($selectedDays == '30'){{ 'selected' }} @endif>30 Days</option>
+            <option value='60' @if($selectedDays == '60'){{ 'selected' }} @endif>60 Days</option>
         </select>
         <label for='review_category'>* Select Category</label>
         <select id='review_category' name='Review Category'>
@@ -47,7 +49,7 @@
         @foreach ($data as $row)
             <tr>
                 @foreach($row as $key => $val)
-                    <td>
+                    <td class='numberColumn'>
                         @if ($val == 'no data')
                             -
                         @else

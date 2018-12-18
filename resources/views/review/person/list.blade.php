@@ -37,10 +37,10 @@
         @foreach($logs as $log)
             <tr>
                 <td>{{ $log->activity_date }}</td>
-                <td>{{ $log->weight }}</td>
-                <td>{{ $log->activity }}</td>
-                <td>{{ $log->bmr }}</td>
-                <td>{{ $log->calories_burned }}</td>
+                <td class='numberColumn'>{{ $log->weight }}</td>
+                <td>{!!  ucwords(str_replace('_', ' ', $log->activity)) !!}</td>
+                <td class='numberColumn'>{{ $log->bmr }}</td>
+                <td class='numberColumn'>{{ $log->calories_burned }}</td>
             </tr>
         @endforeach
     </table>
