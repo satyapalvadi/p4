@@ -33,6 +33,7 @@
 @endif
 
 <header>
+    <h1 style='text-align: center; font-weight: bold; font-size: 30px; color: #4CAF50;'>Activity Tracker</h1>
     @include('modules.nav')
 </header>
 

@@ -195,6 +195,7 @@ ul.checkboxes label {
     padding: 5px;
     font-weight: bold;
     text-align: center;
+    font-size: 25px;
 }
 
 .success-alert {
@@ -207,6 +208,7 @@ ul.checkboxes label {
     padding: 5px;
     font-weight: bold;
     text-align: center;
+    font-size: 25px;
 }
 
 ul.alert {

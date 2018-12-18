@@ -36,9 +36,9 @@ __Delete__
   + If operation is success, a listing page of all persons in the db will be displayed with a success alert message.
 
 ## Outside resources
-  + Nav bar
-  + Laravel documentation
-  + update or create
+  + Got some help for drop downs in navigation here: <https://www.w3schools.com/css/css_navbar.asp>
+  + Used php, laravel, & eloquent documentation along with class notes and foobooks project.
+  + Referred to this post for Laravel's updateOrCreate Eloquent feature: <https://stackoverflow.com/questions/33139076/laravel-update-if-record-exists-or-create-if-not>
 
 ## Code style divergences
   + Some HTML code is really long and spans multiple lines
