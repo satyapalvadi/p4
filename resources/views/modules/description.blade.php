@@ -1,1 +1,1 @@
-Foobooks is a simple book manager application created as a proof of concept for <a href='https://dwa15.com'>CSCI E-15 Dynamic Web Applications</a> (Fall 2018).
+<div>Activity Tracker is a simple application where individual's daily weight and exercise activity can be logged. Based on the entered activity, the application calculates BMR and calories burned are calculated. Groups can be created and individuals can join groups. Also, individual's and group's activities can be reviewed.</div>
